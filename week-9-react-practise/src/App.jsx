@@ -15,7 +15,8 @@ function Counter()
 
   function increasecount()
   {
-    setcount(count+1);
+    setcount(count+2);
+    // increases by 2
   }
   function decreasecount()
   {
