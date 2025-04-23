@@ -6,6 +6,7 @@ function App()
 {
   let countervisible =true;
   return <div>
+    
 
     {countervisible ? <Counter></Counter>:null}
     {countervisible && <Counter></Counter>}
