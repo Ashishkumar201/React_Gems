@@ -4,34 +4,35 @@ import './App.css';
 
 function App()
 {
+  let countervisible =true;
   return <div>
-    <Counter></Counter>
+
+    {countervisible ? <Counter></Counter>:null}
+    {countervisible && <Counter></Counter>}
+    
     </div>  
 }
 
 function Counter()
 {
   const [count, setcount]=useState(0);
-
-  function increasecount()
+  function reset()
   {
-    setcount(count+2);
-    // increases by 2
-  }
-  function decreasecount()
-  {
-    setcount(count-1);
-  }
-  function Reset(){
     setcount(0);
   }
+  console.log("counter"); 
 
+  useEffect(function (){
+    setInterval(function() {
+      setcount(count=>count+1);
+      
+    }, 1000);
+  },[]);
 
   return <div className="container">
       <h1>{count}</h1>
-      <button onClick={increasecount}>Increase count</button>
-      <button onClick={decreasecount}>Decrease count</button> 
-      <button onClick={Reset}>Reset the count</button> 
+      <button onClick={reset}>Reset </button>
+      
     </div>
 }
   
