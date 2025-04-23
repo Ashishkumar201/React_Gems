@@ -11,24 +11,26 @@ function App()
 
 function Counter()
 {
-  const[count,setcount]=useState(0);
-  console.log("counter");
-  useEffect(function(){
-    console.log("counted");
-    setInterval(function()  {
-      setcount(count=>count+1);
-      
-    }, 1000);
-  },[]);
+  const [count, setcount]=useState(0);
 
-  
-
-  
+  function increasecount()
+  {
+    setcount(count+1);
+  }
+  function decreasecount()
+  {
+    setcount(count-1);
+  }
+  function Reset(){
+    setcount(0);
+  }
 
 
   return <div className="container">
       <h1>{count}</h1>
-      
+      <button onClick={increasecount}>Increase count</button>
+      <button onClick={decreasecount}>Decrease count</button> 
+      <button onClick={Reset}>Reset the count</button> 
     </div>
 }
   
